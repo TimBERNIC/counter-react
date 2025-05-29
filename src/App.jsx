@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Button from "./assets/components/button";
+import { FaCalculator } from "react-icons/fa";
 
 const App = () => {
   const [count, setCount] = useState(10);
@@ -9,26 +10,35 @@ const App = () => {
     <>
       <header>
         <div>
+          <FaCalculator color="#5c48d3" />
           <p>React Counter</p>
         </div>
       </header>
       <main>
         <div>
-          <Button
-            className="decrement-button"
-            functionOnClick={() => {
-              setCount(count - 1);
-            }}
-            title="-"
-          />
+          <div className="buton-box">
+            {count > 0 && (
+              <Button
+                className="decrement-button"
+                functionOnClick={() => {
+                  setCount(count - 1);
+                }}
+                title="-"
+              />
+            )}
+          </div>
           <div className="count-box">{count}</div>
-          <Button
-            className="increment-button"
-            functionOnClick={() => {
-              setCount(count + 1);
-            }}
-            title="+"
-          />
+          <div className="buton-box">
+            {count < 10 && (
+              <Button
+                className="increment-button"
+                functionOnClick={() => {
+                  setCount(count + 1);
+                }}
+                title="+"
+              />
+            )}
+          </div>
         </div>
         <div>
           <Button
